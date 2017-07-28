@@ -218,8 +218,8 @@ public class AliPayServiceImpl implements IAliPayService {
 		logger.info("支付宝手机支付下单");
 		String  totalFee =  CommonUtil.divide(product.getTotalFee(), "100").toString();
 		AlipayTradeWapPayRequest alipayRequest = new AlipayTradeWapPayRequest();
-		String subject = "买个苹果而已";
-		String returnUrl =  "回调地址 http 自定义";
+		String subject = "我去年买个苹果而已";
+		String returnUrl = "回调地址 http 自定义";
 		alipayRequest.setReturnUrl(returnUrl);//前台通知
 		String notifyUrl  = Constants.PAY_URL.get("alipay_notify_url");
         alipayRequest.setNotifyUrl(notifyUrl);//后台回调
@@ -233,7 +233,7 @@ public class AliPayServiceImpl implements IAliPayService {
 		String biz = bizContent.toString().replaceAll("\"", "'");
         alipayRequest.setBizContent(biz);
         logger.info("业务参数:"+alipayRequest.getBizContent());
-        String form = "支付宝异常";
+        String form = Constants.FAIL;
         try {
             form = AliPayConfig.getAlipayClient().pageExecute(alipayRequest).getBody();
         } catch (AlipayApiException e) {

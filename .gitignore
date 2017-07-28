@@ -7,3 +7,4 @@
 *.ear
 /target/
 /.settings/
+zfbinfo.properties

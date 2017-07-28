@@ -1,5 +1,4 @@
 package com.itstyle.modules.alipay.service;
-
 import com.itstyle.common.model.Product;
 /**
  * 扫码支付以及手机H5支付
@@ -56,7 +55,11 @@ public interface IAliPayService {
 	 */
 	String downloadBillUrl(String billDate,String billType);
 	/**
-	 * 手机支付返回一个form表单 然后调用方刷新到H5页面
+	 * 方法一：
+	 * 对于页面跳转类API，SDK不会也无法像系统调用类API一样自动请求支付宝并获得结果，而是在接受request请求对象后，
+	 * 为开发者生成前台页面请求需要的完整form表单的html（包含自动提交脚本），商户直接将这个表单的String输出到http response中即可。
+	 * 方法二：
+	 * 如果是远程调用返回消费放一个form表单 然后调用方刷新到页面自动提交即可
 	 * @Author  科帮网
 	 * @param product
 	 * @return  String
