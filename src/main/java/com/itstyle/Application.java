@@ -20,6 +20,7 @@ public class Application  {
 	public static void main(String[] args) throws InterruptedException {
 		SpringApplication.run(Application.class, args);
 		//初始化 支付宝参数 涉及机密 此文件不提交 请自行配置加载
+		//依赖 commons.configuration 修改会自动更新相关配置
 		Configs.init("zfbinfo.properties");
 		logger.info("支付项目启动 ");
 	}
