@@ -38,7 +38,9 @@ public class AliPayServiceImpl implements IAliPayService {
 	public String aliPay(Product product) {
 		logger.info(product.getAttach()+"(订单号："+product.getOutTradeNo()+"生成支付宝支付码)");
 		String  message = Constants.SUCCESS;
-		String imgPath= Constants.SF_FILE_SEPARATOR+"alipay_"+product.getOutTradeNo()+".png";
+		//String imgPath= Constants.SF_FILE_SEPARATOR+"alipay_"+product.getOutTradeNo()+".png";
+		//二维码存放路径 自行定义
+		String imgPath= "D:\\"+product.getOutTradeNo()+".png";
 		String outTradeNo = product.getOutTradeNo();
 		String subject = product.getBody();
 		String totalAmount =  CommonUtil.divide(product.getTotalFee(), "100").toString();
@@ -50,11 +52,11 @@ public class AliPayServiceImpl implements IAliPayService {
 		ExtendParams extendParams = new ExtendParams();
 		extendParams.setSysServiceProviderId("2088100200300400500");
 		// 订单描述，可以对交易或商品进行一个详细地描述，比如填写"购买商品2件共15.00元"
-		String body = "购买商品2件共15.00元";
+		String body = product.getBody();
 		// 支付超时，定义为120分钟
 		String timeoutExpress = "120m";
+		String notifyUrl  =product.getFrontUrl();
 		// 创建扫码支付请求builder，设置请求参数
-		String notifyUrl  = Constants.PAY_URL.get("alipay_notify_url");
 		AlipayTradePrecreateRequestBuilder builder = new AlipayTradePrecreateRequestBuilder()
 		.setSubject(subject)
 		.setTotalAmount(totalAmount)
@@ -218,7 +220,7 @@ public class AliPayServiceImpl implements IAliPayService {
 		logger.info("支付宝手机支付下单");
 		String  totalFee =  CommonUtil.divide(product.getTotalFee(), "100").toString();
 		AlipayTradeWapPayRequest alipayRequest = new AlipayTradeWapPayRequest();
-		String subject = "我去年买个苹果而已";
+		String subject = product.getBody();
 		String returnUrl = "回调地址 http 自定义";
 		alipayRequest.setReturnUrl(returnUrl);//前台通知
 		String notifyUrl  = Constants.PAY_URL.get("alipay_notify_url");

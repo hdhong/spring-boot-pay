@@ -67,6 +67,19 @@
 		    <artifactId>commons-configuration</artifactId>
 		    <version>1.10</version>
 		</dependency>
+		<!--gson -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		</dependency>
+		<!-- zxing -->
+		<dependency>
+		    <groupId>com.google.zxing</groupId>
+		    <artifactId>core</artifactId>
+		    <version>3.2.1</version>
+		</dependency>
+		
+		
 		
 	</dependencies>
 	<build>
