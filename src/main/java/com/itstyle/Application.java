@@ -4,6 +4,8 @@ import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alipay.demo.trade.config.Configs;
 /**
@@ -14,8 +16,14 @@ import com.alipay.demo.trade.config.Configs;
  */
 @EnableAutoConfiguration
 @ComponentScan(basePackages={"com.itstyle.modules"})
+@Controller
 public class Application  {
 	private static final Logger logger = Logger.getLogger(Application.class);
+	
+	@RequestMapping("/")
+    public String   greeting() {
+        return "index";
+    }
 	
 	public static void main(String[] args) throws InterruptedException {
 		SpringApplication.run(Application.class, args);

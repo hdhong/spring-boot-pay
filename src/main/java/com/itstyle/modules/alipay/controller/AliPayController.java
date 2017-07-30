@@ -10,13 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.demo.trade.config.Configs;
+import com.itstyle.common.model.Product;
+import com.itstyle.modules.alipay.service.IAliPayService;
 /**
  * 支付宝二维码支付
  * 创建者 科帮网
@@ -26,8 +30,22 @@ import com.alipay.demo.trade.config.Configs;
 @RequestMapping(value = "alipay")
 public class AliPayController {
 	private static final Logger logger = LoggerFactory.getLogger(AliPayController.class);
+	@Autowired
+	private IAliPayService aliPayService;
+
+	@RequestMapping("/index")
+    public String   index() {
+        return "alipay/index";
+    }
+	@RequestMapping("/pcPay")
+    public String  pcPay(Product product,ModelMap map) {
+		logger.info("电脑支付");
+		String form  =  aliPayService.aliPayPc(product);
+		map.addAttribute("form", form);
+		return "alipay/pay";
+    }
     /**
-     * 支付宝支付回调
+     * 支付宝支付回调(二维码、H5、网站)
      * @Author  科帮网
      * @param request
      * @param response

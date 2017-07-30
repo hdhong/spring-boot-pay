@@ -14,6 +14,7 @@ import com.alipay.api.AlipayClient;
 import com.alipay.api.AlipayResponse;
 import com.alipay.api.request.AlipayDataDataserviceBillDownloadurlQueryRequest;
 import com.alipay.api.request.AlipayTradeCloseRequest;
+import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
 import com.alipay.api.response.AlipayDataDataserviceBillDownloadurlQueryResponse;
 import com.alipay.api.response.AlipayTradeCloseResponse;
@@ -218,19 +219,43 @@ public class AliPayServiceImpl implements IAliPayService {
 	@Override
 	public String aliPayMobile(Product product) {
 		logger.info("支付宝手机支付下单");
-		String  totalFee =  CommonUtil.divide(product.getTotalFee(), "100").toString();
 		AlipayTradeWapPayRequest alipayRequest = new AlipayTradeWapPayRequest();
-		String subject = product.getBody();
 		String returnUrl = "回调地址 http 自定义";
 		alipayRequest.setReturnUrl(returnUrl);//前台通知
 		String notifyUrl  = Constants.PAY_URL.get("alipay_notify_url");
         alipayRequest.setNotifyUrl(notifyUrl);//后台回调
         JSONObject bizContent = new JSONObject();
         bizContent.put("out_trade_no", product.getOutTradeNo());
-        bizContent.put("total_amount", totalFee);//订单金额
-        bizContent.put("subject",subject);//订单标题
+        bizContent.put("total_amount", product.getTotalFee());//订单金额:元
+        bizContent.put("subject",product.getSubject());//订单标题
         bizContent.put("seller_id", Configs.getPid());//实际收款账号，一般填写商户PID即可
         bizContent.put("product_code", "QUICK_WAP_PAY");//手机网页支付
+		bizContent.put("body", "两个苹果五毛钱");
+		String biz = bizContent.toString().replaceAll("\"", "'");
+        alipayRequest.setBizContent(biz);
+        logger.info("业务参数:"+alipayRequest.getBizContent());
+        String form = Constants.FAIL;
+        try {
+            form = AliPayConfig.getAlipayClient().pageExecute(alipayRequest).getBody();
+        } catch (AlipayApiException e) {
+        	logger.error("支付宝构造表单失败",e);
+        }
+        return form;
+	}
+	@Override
+	public String aliPayPc(Product product) {
+		logger.info("支付宝PC支付下单");
+		AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+		String returnUrl = "前台回调地址 http 自定义";
+		alipayRequest.setReturnUrl(returnUrl);//前台通知
+		String notifyUrl  = "后台回调地址 http 自定义";
+        alipayRequest.setNotifyUrl(notifyUrl);//后台回调
+        JSONObject bizContent = new JSONObject();
+        bizContent.put("out_trade_no", product.getOutTradeNo());
+        bizContent.put("total_amount", product.getTotalFee());//订单金额:元
+        bizContent.put("subject",product.getSubject());//订单标题
+        bizContent.put("seller_id", Configs.getPid());//实际收款账号，一般填写商户PID即可
+        bizContent.put("product_code", "FAST_INSTANT_TRADE_PAY");//电脑网站支付
 		bizContent.put("body", "两个苹果五毛钱");
 		String biz = bizContent.toString().replaceAll("\"", "'");
         alipayRequest.setBizContent(biz);

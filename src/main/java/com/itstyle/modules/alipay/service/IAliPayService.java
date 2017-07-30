@@ -55,6 +55,7 @@ public interface IAliPayService {
 	 */
 	String downloadBillUrl(String billDate,String billType);
 	/**
+	 * 手机H5支付、腾讯相关软件下不支持、使用UC等浏览器打开
 	 * 方法一：
 	 * 对于页面跳转类API，SDK不会也无法像系统调用类API一样自动请求支付宝并获得结果，而是在接受request请求对象后，
 	 * 为开发者生成前台页面请求需要的完整form表单的html（包含自动提交脚本），商户直接将这个表单的String输出到http response中即可。
@@ -70,4 +71,15 @@ public interface IAliPayService {
 	 * attach 附件参数 使用json格式传递 用于回调区分
 	 */
 	String aliPayMobile(Product product);
+	/**
+	 * 网站支付
+	 * @Author  科帮网
+	 * @param product
+	 * @return  String
+	 * @Date	2017年7月30日
+	 * 更新日志
+	 * 2017年7月30日  科帮网 首次创建
+	 *
+	 */
+	String aliPayPc(Product product);
 }
