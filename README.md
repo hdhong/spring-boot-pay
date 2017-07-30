@@ -1,6 +1,11 @@
 #spring-boot-pay
 支付服务：支付宝，微信，银联详细代码案例
 
+##支付宝
+电脑支付：https://docs.open.alipay.com/270
+扫码支付：https://docs.open.alipay.com/194
+手机支付：https://docs.open.alipay.com/203
+
 #注意
 由于工作原因，项目正在完善中 ，随时更新日志
 
