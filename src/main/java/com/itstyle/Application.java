@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alipay.demo.trade.config.Configs;
+import com.itstyle.modules.weixinpay.util.ConfigUtil;
 /**
  * 支付主控
  * 创建者 科帮网
@@ -27,9 +28,10 @@ public class Application  {
 	
 	public static void main(String[] args) throws InterruptedException {
 		SpringApplication.run(Application.class, args);
-		//初始化 支付宝参数 涉及机密 此文件不提交 请自行配置加载
+		//初始化 支付宝 微信参数 涉及机密 此文件不提交 请自行配置加载
 		//依赖 commons.configuration 修改会自动更新相关配置
 		Configs.init("zfbinfo.properties");
+		ConfigUtil.init("wxinfo.properties");
 		logger.info("支付项目启动 ");
 	}
 }
