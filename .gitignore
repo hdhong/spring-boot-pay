@@ -8,3 +8,5 @@
 /target/
 /.settings/
 zfbinfo.properties
+wxinfo.properties
+*apiclient_cert.p12

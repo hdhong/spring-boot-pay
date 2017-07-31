@@ -82,8 +82,26 @@
 		<dependency>
 			<groupId>net.sourceforge.nekohtml</groupId>
 			<artifactId>nekohtml</artifactId>
-			<version>1.9.22</version>
-		</dependency>  
+		</dependency> 
+		<!--jdom -->
+		<dependency>
+		    <groupId>jdom</groupId>
+		    <artifactId>jdom</artifactId>
+		    <version>1.1</version>
+		</dependency>
+		<!--httpclient -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.3.4</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
+		<!-- dom4j -->
+		<dependency>
+		    <groupId>dom4j</groupId>
+		    <artifactId>dom4j</artifactId>
+		    <version>1.6.1</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
+		 
 	</dependencies>
 	<build>
 		<finalName>spring-boot-pay</finalName>
