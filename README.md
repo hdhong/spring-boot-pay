@@ -7,6 +7,12 @@
 - 扫码支付：https://docs.open.alipay.com/194
 - 手机支付：https://docs.open.alipay.com/203
 
+##微信
+
+- 扫码支付：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_1
+- 公众号支付：https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_1
+- H5支付：https://pay.weixin.qq.com/wiki/doc/api/H5.php?chapter=15_1
+
 #注意
 由于工作原因，项目正在完善中 ，随时更新日志
 
