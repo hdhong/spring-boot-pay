@@ -30,6 +30,12 @@ import com.itstyle.modules.weixinpay.util.XMLUtil;
 @RequestMapping(value = "weixin")
 public class WeixinPayController {
 	private static final Logger logger = LoggerFactory.getLogger(WeixinPayController.class);
+	
+	@RequestMapping("/index")
+    public String   index() {
+        return "weixinpay/index";
+    }
+	
 	/**
 	 * 支付后台回调
 	 * @Author  科帮网
