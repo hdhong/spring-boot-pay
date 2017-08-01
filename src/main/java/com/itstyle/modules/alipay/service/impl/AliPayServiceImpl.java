@@ -7,6 +7,7 @@ import net.sf.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.alipay.api.AlipayApiException;
@@ -35,15 +36,18 @@ import com.itstyle.modules.alipay.util.AliPayConfig;
 public class AliPayServiceImpl implements IAliPayService {
 	private static final Logger logger = LoggerFactory.getLogger(AliPayServiceImpl.class);
 	
+	@Value("${alipay.notify.url}")
+	private String notify_url;
+	
 	@Override
 	public String aliPay(Product product) {
-		logger.info(product.getAttach()+"(订单号："+product.getOutTradeNo()+"生成支付宝支付码)");
+		logger.info("订单号：{}生成支付宝支付码",product.getOutTradeNo());
 		String  message = Constants.SUCCESS;
-		//String imgPath= Constants.SF_FILE_SEPARATOR+"alipay_"+product.getOutTradeNo()+".png";
-		//二维码存放路径 自行定义
-		String imgPath= "D:\\"+product.getOutTradeNo()+".png";
+		//二维码存放路径
+		System.out.println(Constants.QRCODE_PATH);
+		String imgPath= Constants.QRCODE_PATH+Constants.SF_FILE_SEPARATOR+product.getOutTradeNo()+".png";
 		String outTradeNo = product.getOutTradeNo();
-		String subject = product.getBody();
+		String subject = product.getSubject();
 		String totalAmount =  CommonUtil.divide(product.getTotalFee(), "100").toString();
 		// 如果该字段为空，则默认为与支付宝签约的商户的PID，也就是appid对应的PID
 		String sellerId = "";
@@ -56,7 +60,6 @@ public class AliPayServiceImpl implements IAliPayService {
 		String body = product.getBody();
 		// 支付超时，定义为120分钟
 		String timeoutExpress = "120m";
-		String notifyUrl  =product.getFrontUrl();
 		// 创建扫码支付请求builder，设置请求参数
 		AlipayTradePrecreateRequestBuilder builder = new AlipayTradePrecreateRequestBuilder()
 		.setSubject(subject)
@@ -67,7 +70,7 @@ public class AliPayServiceImpl implements IAliPayService {
 		.setStoreId(storeId)
 		.setExtendParams(extendParams)
 		.setTimeoutExpress(timeoutExpress)
-        .setNotifyUrl(notifyUrl);//支付宝服务器主动通知商户服务器里指定的页面http路径,根据需要设置
+        .setNotifyUrl(notify_url);//支付宝服务器主动通知商户服务器里指定的页面http路径,根据需要设置
 		
 		AlipayF2FPrecreateResult result = AliPayConfig.getAlipayTradeService().tradePrecreate(builder);
 		switch (result.getTradeStatus()) {

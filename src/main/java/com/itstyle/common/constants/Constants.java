@@ -3,7 +3,7 @@ package com.itstyle.common.constants;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.springframework.web.context.ContextLoader;
+import org.springframework.util.ClassUtils;
 
 public class Constants {
 	
@@ -15,10 +15,8 @@ public class Constants {
 	public static final String SF_PATH_SEPARATOR = System.getProperty("path.separator");//路径分隔符
 	
 	
-	public static final String PATH = ContextLoader.getCurrentWebApplicationContext().getServletContext().getRealPath("/file")
-	         +Constants.SF_FILE_SEPARATOR;
 
-	public static final String QRCODE_PATH = PATH+"pay_qrCode"; 
+	public static final String QRCODE_PATH = ClassUtils.getDefaultClassLoader().getResource("static").getPath()+SF_FILE_SEPARATOR+"qrcode"; 
 	
 	public static final String WEIXIN_BILL = "tradetime, ghid, mchid, submch, deviceid, wxorder, bzorder, openid, tradetype, tradestatus, bank, currency, totalmoney, redpacketmoney, wxrefund, bzrefund, refundmoney, redpacketrefund, refundtype, refundstatus, productname, bzdatapacket, fee, rate";
 	

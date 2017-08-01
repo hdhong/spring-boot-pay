@@ -10,13 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itstyle.common.model.Product;
 import com.itstyle.common.utils.AddressUtils;
 import com.itstyle.common.utils.DateUtil;
+import com.itstyle.modules.weixinpay.service.IWeixinPayService;
 import com.itstyle.modules.weixinpay.util.ConfigUtil;
 import com.itstyle.modules.weixinpay.util.HttpUtil;
 import com.itstyle.modules.weixinpay.util.PayCommonUtil;
@@ -32,7 +35,17 @@ import com.itstyle.modules.weixinpay.util.mobile.MobileUtil;
 @RequestMapping(value = "weixinMobile")
 public class WeixinMobilePayController {
 	private static final Logger logger = LoggerFactory.getLogger(WeixinMobilePayController.class);
+	@Autowired
+	private IWeixinPayService weixinPayService;
+	@Value("${server.context.url}")
+	private String server_url;
 	
+	@RequestMapping("/pay")
+    public String  pay(Product product,ModelMap map) {
+		logger.info("H5支付(需要公众号内支付)");
+		String url =  weixinPayService.weixinPayMobile(product);
+		return "redirect:"+url;
+    }
 	/**
 	 * 预下单(对于已经产生的订单)
 	 * @Author  科帮网
@@ -56,8 +69,7 @@ public class WeixinMobilePayController {
 		String code = request.getParameter("code");
 		//获取用户openID(JSAPI支付必须传openid)
 		String openId = MobileUtil.getOpenId(code);
-		String pay_url = "http://blog.52itstyle.com";
-		String notify_url =pay_url+"/weixinMobile/WXPayBack";//回调接口
+		String notify_url =server_url+"/weixinMobile/WXPayBack";//回调接口
 		String trade_type = "JSAPI";// 交易类型H5支付
 		SortedMap<Object, Object> packageParams = new TreeMap<Object, Object>();
 		ConfigUtil.commonParams(packageParams);
@@ -108,33 +120,6 @@ public class WeixinMobilePayController {
 			url.append("redirect:/weixinMobile/error?code=1&orderNo="+orderNo);//系统错误
 		}
 		return url.toString();
-	}
-	/**
-	 * 支付请求
-	 * @Author  科帮网
-	 * @param request
-	 * @param response
-	 * @param orderNo
-	 * @param totalFee
-	 * @return
-	 * @throws Exception  String
-	 * @Date	2017年7月31日
-	 * 更新日志
-	 * 2017年7月31日  科帮网 首次创建
-	 *
-	 */
-	@RequestMapping(value = "pay/{orderNo}/{totalFee}", method=RequestMethod.GET)
-	public String pay(HttpServletRequest request, HttpServletResponse response,
-			          @PathVariable String orderNo,@PathVariable String totalFee) throws Exception {
-		StringBuffer url = new StringBuffer();
-		String pay_url = "http://blog.52itstyle.com";
-		url.append("http://open.weixin.qq.com/connect/oauth2/authorize?");
-		url.append("appid="+ConfigUtil.APP_ID);
-		url.append("&redirect_uri="+pay_url+"/weixinMobile/dopay");
-		url.append("&response_type=code&scope=snsapi_base&state=");
-		url.append(orderNo+"/"+totalFee);//订单号/金额(单位是分)
-		url.append("#wechat_redirect");
-		return "redirect:"+url.toString();
 	}
 	/**
 	 * 手机支付完成回调

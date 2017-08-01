@@ -1,5 +1,7 @@
 package com.itstyle;
 
+import java.io.IOException;
+
 import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -26,7 +28,7 @@ public class Application  {
         return "index";
     }
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		SpringApplication.run(Application.class, args);
 		//初始化 支付宝 微信参数 涉及机密 此文件不提交 请自行配置加载
 		//依赖 commons.configuration 修改会自动更新相关配置

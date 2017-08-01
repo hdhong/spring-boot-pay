@@ -12,14 +12,14 @@
 	</header>
 	<div id="main">
 		<div id="tabhead" class="tab-head">
-			<h2 id="tab1" class="selected" name="tab">付 款</h2>
+			<h2 id="tab1" class="selected" name="tab">公众号内支付</h2>
 			<h2 id="tab2" name="tab">交 易 查 询</h2>
 			<h2 id="tab3" name="tab">退 款</h2>
 			<h2 id="tab4" name="tab">退 款 查 询</h2>
 			<h2 id="tab5" name="tab">交 易 关 闭</h2>
 			<h2 id="tab6" name="tab">扫码支付</h2>
 		</div>
-		<form name=alipayment action=pcPay method=post
+		<form name=alipayment action=../weixinMobile/pay method=post
 			target="_blank">
 			<div id="body1" class="show" name="divcontent">
 				<dl class="content">
@@ -170,28 +170,28 @@
 				</dl>
 			</div>
 		</form>
-		<form name=alipayqc  method=post
+		<form name=alipayqc action=qcPay method=post
 			target="_blank">
 			<div id="body6"  class="tab-content" name="divcontent">
 				<dl class="content">
 					<dt>商户订单号 ：</dt>
 					<dd>
-						<input id="WIDout_trade_no" name="outTradeNo" />
+						<input id="WIDout_trade_no_qc" name="outTradeNo" />
 					</dd>
 					<hr class="one_line">
 					<dt>订单名称 ：</dt>
 					<dd>
-						<input id="WIDsubject" name="subject" />
+						<input id="WIDsubject_qc" name="subject" />
 					</dd>
 					<hr class="one_line">
 					<dt>付款金额 ：</dt>
 					<dd>
-						<input id="WIDtotal_amount" name="totalFee" />
+						<input id="WIDtotal_amount_qc" name="totalFee" />
 					</dd>
 					<hr class="one_line">
 					<dt>商品描述：</dt>
 					<dd>
-						<input id="WIDbody" name="body" />
+						<input id="WIDbody_qc" name="body" />
 					</dd>
 					<hr class="one_line">
 					<dt></dt>
@@ -246,6 +246,9 @@
 		document.getElementById("WIDout_trade_no").value =  sNow;
 		document.getElementById("WIDsubject").value = "科帮网测试支付";
 		document.getElementById("WIDtotal_amount").value = "100";
+		document.getElementById("WIDout_trade_no_qc").value =  sNow;
+		document.getElementById("WIDsubject_qc").value = "科帮网测试支付";
+		document.getElementById("WIDtotal_amount_qc").value = "100";
 	}
 	GetDateNow();
 </script>

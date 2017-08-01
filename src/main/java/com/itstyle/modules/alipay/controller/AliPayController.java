@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.demo.trade.config.Configs;
+import com.itstyle.common.constants.Constants;
 import com.itstyle.common.model.Product;
 import com.itstyle.modules.alipay.service.IAliPayService;
 /**
@@ -43,6 +44,25 @@ public class AliPayController {
 		String form  =  aliPayService.aliPayPc(product);
 		map.addAttribute("form", form);
 		return "alipay/pay";
+    }
+	@RequestMapping("/mobilePay")
+    public String  mobilePay(Product product,ModelMap map) {
+		logger.info("手机H5支付");
+		String form  =  aliPayService.aliPayMobile(product);
+		map.addAttribute("form", form);
+		return "alipay/pay";
+    }
+	@RequestMapping("/qcPay")
+    public String  qcPay(Product product,ModelMap map) {
+		logger.info("二维码支付");
+		String message  =  aliPayService.aliPay(product);
+		if(Constants.SUCCESS.equals(message)){
+			String img= "../qrcode/"+product.getOutTradeNo()+".png";
+			map.addAttribute("img", img);
+		}else{
+			//失败
+		}
+		return "alipay/qcpay";
     }
     /**
      * 支付宝支付回调(二维码、H5、网站)

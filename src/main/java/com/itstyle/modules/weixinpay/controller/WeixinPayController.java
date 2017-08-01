@@ -14,9 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.itstyle.common.constants.Constants;
+import com.itstyle.common.model.Product;
+import com.itstyle.modules.weixinpay.service.IWeixinPayService;
 import com.itstyle.modules.weixinpay.util.ConfigUtil;
 import com.itstyle.modules.weixinpay.util.PayCommonUtil;
 import com.itstyle.modules.weixinpay.util.XMLUtil;
@@ -30,12 +35,29 @@ import com.itstyle.modules.weixinpay.util.XMLUtil;
 @RequestMapping(value = "weixin")
 public class WeixinPayController {
 	private static final Logger logger = LoggerFactory.getLogger(WeixinPayController.class);
+	@Autowired
+	private IWeixinPayService weixinPayService;
 	
 	@RequestMapping("/index")
     public String   index() {
         return "weixinpay/index";
     }
-	
+	@RequestMapping("/qcPay")
+    public String  qcPay(Product product,ModelMap map) {
+		logger.info("二维码支付");
+		//参数自定义  这只是个Demo
+		product.setProductId("20170721");
+		product.setBody("两个苹果八毛钱 ");
+		product.setSpbillCreateIp("192.168.1.66");
+		String message  =  weixinPayService.weixinPay(product);
+		if(Constants.SUCCESS.equals(message)){
+			String img= "../qrcode/"+product.getOutTradeNo()+".png";
+			map.addAttribute("img", img);
+		}else{
+			//失败
+		}
+		return "weixinpay/qcpay";
+    }
 	/**
 	 * 支付后台回调
 	 * @Author  科帮网
