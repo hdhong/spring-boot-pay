@@ -68,28 +68,26 @@ SIGN_TYPE = MD5
 CERT_PATH = apiclient_cert.p12
 ```
 
-
 ##银联
 - 开放平台：https://open.unionpay.com/ajweb/index
 - 商家中心：https://merchant.unionpay.com/join/
 - 测试账号：https://blog.52itstyle.com/archives/326/
 
-
-##2017年07月30日
-
+##注意事项
+- 除银联支付可以测试以外，支付宝和微信支付测试均需要企业认证，个人无法完成测试
 - 项目中的支付宝SDk需要自行去官网下载打入本地仓库或者私服，提供下载地址：http://pan.baidu.com/s/1mi5LfhI
-- 支付相关参数zfbinfo.properties，需要自行去阅读支付宝文档自行生成
+- 微信退款证书，微信商户平台(pay.weixin.qq.com)-->账户中心-->账户设置-->API安全-->证书下载，使用apiclient_cert.p12即可
+- 支付宝支付相关参数zfbinfo.properties，需要自行去阅读支付宝文档自行生成
+- 微信支付相关参数wxinfo.properties，需要自行去阅读微信支付文档自行生成
+
+## 更新日志
 - 支付宝生成支付二维码Demo已经测试完成
 - 支付宝手机端H5支付Demo已经测试完成
 - 支付宝电脑支付Demo已经测试完成
-- 支付宝页面演示
 
-##2017年07月31日
-- 微信支付基础组间
-- 微信退款证书，微信商户平台(pay.weixin.qq.com)-->账户中心-->账户设置-->API安全-->证书下载，使用apiclient_cert.p12即可
-- 支付相关参数wxinfo.properties，需要自行去阅读微信支付文档自行生成
 - 微信二维码支付Demo测试完成
 - 微信公众号支付(需要添加认证网址)
+- 微信H5支付(审核中)
 
-##2017年08月1日
-- 集成银联支付
+- 银联支付电脑支付Demo测试完成
+- 银联支付H5支付Demo测试完成
