@@ -40,7 +40,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>springloaded</artifactId>
 		</dependency>
-		<!-- 支付宝 SDK-->
+		<!-- 支付宝 SDK(项目中的支付宝SDk需要自行去官网下载打入本地仓库或者私服)-->
 		<dependency>
 		    <groupId>com.acts</groupId>
 		    <artifactId>alipay-trade-sdk</artifactId>

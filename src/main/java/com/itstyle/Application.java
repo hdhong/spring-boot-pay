@@ -32,7 +32,7 @@ public class Application extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/cert/**").addResourceLocations(
 				"classpath:/cert/");
 		super.addResourceHandlers(registry);
-		logger.info("自定义静态资源目录");
+		logger.info("自定义静态资源目录,这只是个Demo,生产肯定不会暴露");
 	}
 
 	public static void main(String[] args) throws InterruptedException,
