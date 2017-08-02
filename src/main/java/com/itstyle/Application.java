@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.itstyle.modules.unionpay.util.SDKConfig;
-
 /**
  * 支付主控 
  * 创建者 科帮网
@@ -43,7 +41,7 @@ public class Application extends WebMvcConfigurerAdapter {
 		// 初始化 支付宝 微信 银联 参数 涉及机密 此文件不提交 请自行配置加载
 		//Configs.init("zfbinfo.properties");
 		//ConfigUtil.init("wxinfo.properties");
-		SDKConfig.getConfig().loadPropertiesFromSrc();
+		//SDKConfig.getConfig().loadPropertiesFromSrc();
 		logger.info("支付项目启动 ");
 	}
 
