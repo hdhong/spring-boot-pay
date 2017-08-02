@@ -1,8 +1,8 @@
 package com.itstyle.common.constants;
 /**
  * 支付类型
- * 创建者	张志朋
- * 创建时间	2017年1月22日
+ * 创建者 科帮网
+ * 创建时间	2017年8月2日
  *
  */
 public enum PayType {

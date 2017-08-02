@@ -225,8 +225,7 @@ public class AliPayServiceImpl implements IAliPayService {
 		AlipayTradeWapPayRequest alipayRequest = new AlipayTradeWapPayRequest();
 		String returnUrl = "回调地址 http 自定义";
 		alipayRequest.setReturnUrl(returnUrl);//前台通知
-		String notifyUrl  = Constants.PAY_URL.get("alipay_notify_url");
-        alipayRequest.setNotifyUrl(notifyUrl);//后台回调
+        alipayRequest.setNotifyUrl(notify_url);//后台回调
         JSONObject bizContent = new JSONObject();
         bizContent.put("out_trade_no", product.getOutTradeNo());
         bizContent.put("total_amount", product.getTotalFee());//订单金额:元
@@ -251,8 +250,7 @@ public class AliPayServiceImpl implements IAliPayService {
 		AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
 		String returnUrl = "前台回调地址 http 自定义";
 		alipayRequest.setReturnUrl(returnUrl);//前台通知
-		String notifyUrl  = "后台回调地址 http 自定义";
-        alipayRequest.setNotifyUrl(notifyUrl);//后台回调
+        alipayRequest.setNotifyUrl(notify_url);//后台回调
         JSONObject bizContent = new JSONObject();
         bizContent.put("out_trade_no", product.getOutTradeNo());
         bizContent.put("total_amount", product.getTotalFee());//订单金额:元
