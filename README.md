@@ -102,3 +102,8 @@ CERT_PATH = apiclient_cert.p12
 
 - 银联支付电脑支付Demo测试完成
 - 银联支付H5支付Demo测试完成
+
+
+作者： 小柒2012
+
+欢迎关注： https://blog.52itstyle.com
