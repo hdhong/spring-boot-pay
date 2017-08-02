@@ -15,6 +15,10 @@
 
 ![模拟支付](https://git.oschina.net/uploads/images/2017/0802/191125_6958b9b3_87650.png "2.png")
 
+##欢迎关注
+
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0802/192116_4752d44b_87650.jpeg "1801066129 (1).jpg")
+
 ##支付宝
 
 - 电脑支付：https://docs.open.alipay.com/270
