@@ -6,7 +6,7 @@
 - 电脑支付：https://docs.open.alipay.com/270
 - 扫码支付：https://docs.open.alipay.com/194
 - 手机支付：https://docs.open.alipay.com/203
-- 参数
+- 参数zfbinfo.properties
 
 ```
 支付宝网关名、partnerId和appId
@@ -42,7 +42,7 @@ heartbeat_duration = 900
 - 公众号支付：https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_1
 - H5支付：https://pay.weixin.qq.com/wiki/doc/api/H5.php?chapter=15_1
 - 微信退款说明：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=4_3
-- 参数
+- 参数wxinfo.properties
 
 ```
 服务号的应用ID
@@ -60,6 +60,10 @@ SIGN_TYPE = MD5
 微信支付证书名称
 CERT_PATH = apiclient_cert.p12
 ```
+
+##银联
+- 开放平台：https://open.unionpay.com/ajweb/index
+- 商家中心：https://merchant.unionpay.com/join/
 
 #注意
 由于工作原因，项目正在完善中 ，随时更新日志，有疑问请留言或者加群

@@ -51,7 +51,6 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 			packageParams.put("spbill_create_ip", product.getSpbillCreateIp());// 发起人IP地址
 			packageParams.put("notify_url", notify_url);// 回调地址
 			packageParams.put("trade_type", trade_type);// 交易类型
-			System.out.println(packageParams);
 			String sign = PayCommonUtil.createSign("UTF-8", packageParams, key);
 			packageParams.put("sign", sign);// 签名
 
@@ -97,9 +96,7 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 			packageParams.put("out_trade_no", product.getOutTradeNo());// 商户订单号
 			packageParams.put("out_refund_no", product.getOutTradeNo());//商户退款单号
 			String totalFee = product.getTotalFee();
-			if(totalFee.indexOf(".")>0){//去除小数点 invalide total_fee  报错
-				totalFee = totalFee.substring(0, totalFee.indexOf("."));
-			}
+			totalFee =  CommonUtil.subZeroAndDot(totalFee);
 			packageParams.put("total_fee", totalFee);// 总金额
 			packageParams.put("refund_fee", totalFee);//退款金额
 			packageParams.put("op_user_id", mch_id);//操作员帐号, 默认为商户号

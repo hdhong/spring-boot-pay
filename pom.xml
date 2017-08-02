@@ -101,6 +101,13 @@
 		    <artifactId>dom4j</artifactId>
 		    <version>1.6.1</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
+		<!-- bcprov-jdk16 -->
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcprov-jdk16</artifactId>
+		    <version>1.46</version>
+		</dependency>
+		
 		 
 	</dependencies>
 	<build>
