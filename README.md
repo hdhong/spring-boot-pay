@@ -90,6 +90,7 @@ CERT_PATH = apiclient_cert.p12
 - 微信退款证书，微信商户平台(pay.weixin.qq.com)-->账户中心-->账户设置-->API安全-->证书下载，使用apiclient_cert.p12即可
 - 支付宝支付相关参数zfbinfo.properties，需要自行去阅读支付宝文档自行生成
 - 微信支付相关参数wxinfo.properties，需要自行去阅读微信支付文档自行生成
+- 公众平台微信支付公众号支付授权目录、扫码支付回调URL配置入口已于8月1日迁移至商户平台（pay.weixin.qq.com）。迁移后，原有配置数据不会受影响，你可在商户平台查看和配置。带来的不便敬请谅解。
 
 ## 更新日志
 - 支付宝生成支付二维码Demo已经测试完成
