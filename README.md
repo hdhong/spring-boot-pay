@@ -56,9 +56,10 @@ heartbeat_duration = 900
 
 ##微信
 
-- 扫码支付：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_1
-- 公众号支付：https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_1
 - H5支付：https://pay.weixin.qq.com/wiki/doc/api/H5.php?chapter=15_1
+- 公众号支付：https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_1
+- 扫码支付模式一：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_4
+- 扫码支付模式二：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_5
 - 微信退款说明：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=4_3
 - 参数wxinfo.properties
 
@@ -97,12 +98,14 @@ CERT_PATH = apiclient_cert.p12
 - 支付宝手机端H5支付Demo已经测试完成
 - 支付宝电脑支付Demo已经测试完成
 
-- 微信二维码支付Demo测试完成
+- 微信二维码支付模式二Demo测试完成
 - 微信公众号支付(需要添加认证网址)
 - 微信H5支付(审核中)
 
 - 银联支付电脑支付Demo测试完成
 - 银联支付H5支付Demo测试完成
+
+- 微信二维码支付模式一Demo测试完成
 
 
 作者： 小柒2012
