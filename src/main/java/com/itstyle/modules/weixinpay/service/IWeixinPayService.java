@@ -5,7 +5,8 @@ import com.itstyle.common.model.Product;
 
 public interface IWeixinPayService {
 	/**
-	 * 微信支付下单
+	 * 微信支付下单(模式二)
+	 * 扫码支付 还有模式一 适合固定商品ID 有兴趣的同学可以自行研究
 	 * @Author  科帮网
 	 * @param product
 	 * @return  String
