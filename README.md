@@ -109,6 +109,23 @@ CERT_PATH = apiclient_cert.p12
 - 银联支付H5支付Demo测试完成
 
 - 微信二维码支付模式一Demo测试完成
+![扫码模式一](https://git.oschina.net/uploads/images/2017/0803/184824_420ca96d_87650.png "123.png")
+
+## 推荐阅读
+
+[那些年支付宝微信银联支付遇到的坑](https://blog.52itstyle.com/archives/1364/)
+
+[微信扫码支付模式以及使用场景 ](http://https://blog.52itstyle.com/archives/1367/)
+
+[JAVAWEB如何集成银联网关支付(模拟环境测试)](https://blog.52itstyle.com/archives/331/)
+
+[2017年最新javaweb整合银联在线支付DEMO](https://blog.52itstyle.com/archives/326/)
+
+[微信支付linux下java.net.UnknownHostException: api.mch.weixin.qq.com](https://blog.52itstyle.com/archives/162/)
+
+[JAVA实现微信退款报错unexpected end of file from server](https://blog.52itstyle.com/archives/159/)
+
+[支付宝扫码支付和微信扫码支付业务场景及问题记录](https://blog.52itstyle.com/archives/263/)
 
 
 作者： 小柒2012
