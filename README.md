@@ -15,6 +15,8 @@
 
 ![模拟支付](https://git.oschina.net/uploads/images/2017/0802/191125_6958b9b3_87650.png "2.png")
 
+![扫码模式一](https://git.oschina.net/uploads/images/2017/0803/184824_420ca96d_87650.png "123.png")
+
 ##欢迎关注
 
 ![输入图片说明](https://git.oschina.net/uploads/images/2017/0802/192116_4752d44b_87650.jpeg "1801066129 (1).jpg")
@@ -109,7 +111,7 @@ CERT_PATH = apiclient_cert.p12
 - 银联支付H5支付Demo测试完成
 
 - 微信二维码支付模式一Demo测试完成
-![扫码模式一](https://git.oschina.net/uploads/images/2017/0803/184824_420ca96d_87650.png "123.png")
+
 
 ## 推荐阅读
 
