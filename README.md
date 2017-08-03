@@ -128,6 +128,8 @@ CERT_PATH = apiclient_cert.p12
 [JAVA实现微信退款报错unexpected end of file from server](https://blog.52itstyle.com/archives/159/)
 
 [支付宝扫码支付和微信扫码支付业务场景及问题记录](https://blog.52itstyle.com/archives/263/)
+[
+微信扫码支付(模式一)遇到的那些坑](https://blog.52itstyle.com/archives/1372/)
 
 
 作者： 小柒2012
