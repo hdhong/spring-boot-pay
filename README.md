@@ -15,6 +15,8 @@
 
 ![模拟支付](https://git.oschina.net/uploads/images/2017/0802/191125_6958b9b3_87650.png "2.png")
 
+![扫码模式一](https://git.oschina.net/uploads/images/2017/0803/184824_420ca96d_87650.png "123.png")
+
 ##欢迎关注
 
 ![输入图片说明](https://git.oschina.net/uploads/images/2017/0802/192116_4752d44b_87650.jpeg "1801066129 (1).jpg")
@@ -61,6 +63,7 @@ heartbeat_duration = 900
 - 扫码支付模式一：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_4
 - 扫码支付模式二：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_5
 - 微信退款说明：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=4_3
+- 网络设置指引：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=23_2
 - 参数wxinfo.properties
 
 ```
@@ -92,6 +95,8 @@ CERT_PATH = apiclient_cert.p12
 - 支付宝支付相关参数zfbinfo.properties，需要自行去阅读支付宝文档自行生成
 - 微信支付相关参数wxinfo.properties，需要自行去阅读微信支付文档自行生成
 - 公众平台微信支付公众号支付授权目录、扫码支付回调URL配置入口已于8月1日迁移至商户平台（pay.weixin.qq.com）。迁移后，原有配置数据不会受影响，你可在商户平台查看和配置。带来的不便敬请谅解。
+![支付模式一回调](https://git.oschina.net/uploads/images/2017/0803/184711_75c8374c_87650.png "模式一支付.png")
+- 微信或者支付宝下单调用网关失败，请检查网络 ping api.mch.weixin.qq.com -c 100 或者 ping openapi.alipay.com/gateway.do -c 100
 
 ## 更新日志
 - 支付宝生成支付二维码Demo已经测试完成
@@ -106,6 +111,25 @@ CERT_PATH = apiclient_cert.p12
 - 银联支付H5支付Demo测试完成
 
 - 微信二维码支付模式一Demo测试完成
+
+
+## 推荐阅读
+
+[那些年支付宝微信银联支付遇到的坑](https://blog.52itstyle.com/archives/1364/)
+
+[微信扫码支付模式以及使用场景 ](http://https://blog.52itstyle.com/archives/1367/)
+
+[JAVAWEB如何集成银联网关支付(模拟环境测试)](https://blog.52itstyle.com/archives/331/)
+
+[2017年最新javaweb整合银联在线支付DEMO](https://blog.52itstyle.com/archives/326/)
+
+[微信支付linux下java.net.UnknownHostException: api.mch.weixin.qq.com](https://blog.52itstyle.com/archives/162/)
+
+[JAVA实现微信退款报错unexpected end of file from server](https://blog.52itstyle.com/archives/159/)
+
+[支付宝扫码支付和微信扫码支付业务场景及问题记录](https://blog.52itstyle.com/archives/263/)
+
+[微信扫码支付(模式一)遇到的那些坑](https://blog.52itstyle.com/archives/1372/)
 
 
 作者： 小柒2012
