@@ -7,4 +7,6 @@
 *.ear
 /target/
 /.settings/
+*.project
+*.classpath
 *apiclient_cert.p12
