@@ -11,6 +11,7 @@ import com.alipay.demo.trade.utils.ZxingUtils;
 public class qrCodeUtil {
 	//商户支付回调URL设置指引：进入公众平台-->微信支付-->开发配置-->扫码支付-->修改 加入回调URL
     public static void main(String[] args) {
+    	//注意参数初始化 这只是个Demo
 		SortedMap<Object, Object> packageParams = new TreeMap<Object, Object>();
 		//封装通用参数
 		ConfigUtil.commonParams(packageParams);
