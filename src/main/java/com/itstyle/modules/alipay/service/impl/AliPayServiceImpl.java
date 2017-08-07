@@ -8,8 +8,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.AlipayResponse;
@@ -32,7 +32,7 @@ import com.itstyle.common.model.Product;
 import com.itstyle.common.utils.CommonUtil;
 import com.itstyle.modules.alipay.service.IAliPayService;
 import com.itstyle.modules.alipay.util.AliPayConfig;
-@Service("aliPayService")
+@Service
 public class AliPayServiceImpl implements IAliPayService {
 	private static final Logger logger = LoggerFactory.getLogger(AliPayServiceImpl.class);
 	

@@ -1,16 +1,14 @@
 package com.itstyle;
-
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
 /**
  * 支付主控 
  * 创建者 科帮网
@@ -18,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @EnableAutoConfiguration
 @ComponentScan(basePackages = { "com.itstyle.modules" })
+@ImportResource({"classpath:spring-context-dubbo.xml"})
 @Controller
 public class Application extends WebMvcConfigurerAdapter {
 	private static final Logger logger = Logger.getLogger(Application.class);
