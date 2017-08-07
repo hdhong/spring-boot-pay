@@ -62,6 +62,8 @@
 		    <groupId>net.sf.json-lib</groupId>
 		    <artifactId>json-lib</artifactId>
 		    <version>2.4</version>
+		    <!-- 部分jdk版本报错的问题 -->
+		    <classifier>jdk15</classifier>    
 		</dependency>
 		<!-- commons-configuration -->
 		<dependency>
