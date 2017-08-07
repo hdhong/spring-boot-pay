@@ -1,6 +1,10 @@
 ##spring-boot-pay
 支付服务：支付宝，微信，银联详细代码案例(除银联支付可以测试以外，支付宝和微信支付测试均需要企业认证，个人无法完成测试)，项目启动前请仔细阅读 **注意事项** :facepunch:   。
 
+##开发环境
+
+JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、Dubbox2.8.4
+
 ##友情提示
 由于工作原因，项目正在完善中（仅供参考），随时更新日志，有疑问请留言或者加群
 
