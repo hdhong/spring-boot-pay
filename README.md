@@ -1,9 +1,9 @@
 ##spring-boot-pay
-支付服务：支付宝，微信，银联详细代码案例(除银联支付可以测试以外，支付宝和微信支付测试均需要企业认证，个人无法完成测试)，项目启动前请仔细阅读  **[注意事项](https://git.oschina.net/52itstyle/spring-boot-pay#注意事项)** :fa-hand-o-left:   。
+支付服务：支付宝，微信，银联详细 **代码案例** (除银联支付可以测试以外，支付宝和微信支付测试均需要企业认证，个人无法完成测试)，项目启动前请仔细阅读  **[注意事项](https://git.oschina.net/52itstyle/spring-boot-pay#注意事项)** :fa-hand-o-left:   。
 
 ##开发环境
 
-JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、Dubbox2.8.4
+JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、Dubbox2.8.4、zookeeper3.4.6
 
 ##友情提示
 由于工作原因，项目正在完善中（仅供参考），随时更新日志，有疑问请留言或者加群
@@ -105,7 +105,7 @@ CERT_PATH = apiclient_cert.p12
 ![支付模式一回调](https://git.oschina.net/uploads/images/2017/0803/184711_75c8374c_87650.png "模式一支付.png")
 - 微信或者支付宝下单调用网关失败，请检查网络 ping api.mch.weixin.qq.com -c 100 或者 ping openapi.alipay.com/gateway.do -c 100
 
-## 更新日志
+## 功能日志
 - 支付宝生成支付二维码Demo已经测试完成
 - 支付宝手机端H5支付Demo已经测试完成
 - 支付宝电脑支付Demo已经测试完成
@@ -118,6 +118,7 @@ CERT_PATH = apiclient_cert.p12
 - 银联支付H5支付Demo测试完成
 
 - 微信二维码支付模式一Demo测试完成
+- 集成Dubbo服务，全注解提供RPC服务
 
 
 ## 推荐阅读
