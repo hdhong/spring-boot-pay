@@ -35,6 +35,7 @@ JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、Dub
 - 电脑支付：https://docs.open.alipay.com/270
 - 扫码支付：https://docs.open.alipay.com/194
 - 手机支付：https://docs.open.alipay.com/203
+- 沙箱环境：https://docs.open.alipay.com/200/105311/
 - 参数zfbinfo.properties
 
 ```
@@ -114,13 +115,16 @@ CERT_PATH = apiclient_cert.p12
 
 - 微信二维码支付模式二Demo测试完成
 - 微信公众号支付(需要添加认证网址)
-- 微信H5支付(审核中)
+
 
 - 银联支付电脑支付Demo测试完成
 - 银联支付H5支付Demo测试完成
 
 - 微信二维码支付模式一Demo测试完成
 - 集成Dubbo服务，全注解提供RPC服务
+- 集成logback日志组间
+- 集成HTTPS证书安全服务 
+- 集成微信H5(WAP)支付
 
 
 ## 推荐阅读
