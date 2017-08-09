@@ -26,7 +26,7 @@ import com.itstyle.modules.weixinpay.util.PayCommonUtil;
 import com.itstyle.modules.weixinpay.util.XMLUtil;
 import com.itstyle.modules.weixinpay.util.mobile.MobileUtil;
 /**
- * 微信H5支付
+ * 微信公众号H5支付
  * 创建者 科帮网
  * 创建时间	2017年7月31日
  *
