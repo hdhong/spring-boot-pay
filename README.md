@@ -121,6 +121,8 @@ CERT_PATH = apiclient_cert.p12
 
 - 微信二维码支付模式一Demo测试完成
 - 集成Dubbo服务，全注解提供RPC服务
+- 集成logback日志组间
+- 集成HTTPS证书安全服务 
 
 
 ## 推荐阅读
