@@ -17,7 +17,7 @@ public class Product implements Serializable {
 	private String attach;// 附件数据主要用于商户携带订单的自定义数据
 	private Short payType;// 支付类型(1:支付宝 2:微信 3:银联)
 	private Short payWay;// 支付方式 (1：PC,平板 2：手机)
-	private String frontUrl;// 前台回调地址
+	private String frontUrl;// 前台回调地址  非扫码支付使用
 
 	public Product() {
 		super();
