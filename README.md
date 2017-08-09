@@ -115,7 +115,7 @@ CERT_PATH = apiclient_cert.p12
 
 - 微信二维码支付模式二Demo测试完成
 - 微信公众号支付(需要添加认证网址)
-- 微信H5支付(审核中)
+
 
 - 银联支付电脑支付Demo测试完成
 - 银联支付H5支付Demo测试完成
@@ -124,6 +124,7 @@ CERT_PATH = apiclient_cert.p12
 - 集成Dubbo服务，全注解提供RPC服务
 - 集成logback日志组间
 - 集成HTTPS证书安全服务 
+- 集成微信H5(WAP)支付
 
 
 ## 推荐阅读
