@@ -48,7 +48,7 @@ public interface IWeixinPayService {
 	 */
 	void saveBill();
     /**
-     * 微信手机支付返回一个url地址
+     * 微信公众号支付返回一个url地址
      * @Author  科帮网
      * @param product
      * @return  String
@@ -58,5 +58,16 @@ public interface IWeixinPayService {
      *
      */
 	String weixinPayMobile(Product product);
-	
+	/**
+	 * H5支付 唤醒 微信APP 进行支付
+	 * 申请入口：登录商户平台-->产品中心-->我的产品-->支付产品-->H5支付
+	 * @Author  科帮网
+	 * @param product
+	 * @return  String
+	 * @Date	2017年8月9日
+	 * 更新日志
+	 * 2017年8月9日  科帮网 首次创建
+	 *
+	 */
+	String weixinPayH5(Product product);
 }

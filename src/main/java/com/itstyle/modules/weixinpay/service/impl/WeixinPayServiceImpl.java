@@ -205,10 +205,6 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 		}
 		
 	}
-	public static void main(String[] args) {
-		JSONObject obj = new JSONObject();
-		obj.put("attach","11");
-	}
 	@Override
 	public String weixinPayMobile(Product product) {
 		StringBuffer url = new StringBuffer();
@@ -222,5 +218,60 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 		url.append(product.getOutTradeNo()+"/"+totalFee);//订单号/金额(单位是分)
 		url.append("#wechat_redirect");
 		return  url.toString();
+	}
+	@SuppressWarnings("rawtypes")
+	@Override
+	public String weixinPayH5(Product product) {
+		logger.info("订单号：{}发起H5支付",product.getOutTradeNo());
+		String  mweb_url = "";
+		try {
+			// 账号信息
+			String key = ConfigUtil.API_KEY; // key
+			String trade_type = "MWEB";//交易类型 H5 支付 
+			SortedMap<Object, Object> packageParams = new TreeMap<Object, Object>();
+			ConfigUtil.commonParams(packageParams);
+			packageParams.put("product_id", product.getProductId());// 商品ID
+			packageParams.put("body", product.getBody());// 商品描述
+			packageParams.put("out_trade_no", product.getOutTradeNo());// 商户订单号
+			String totalFee = product.getTotalFee();
+			totalFee =  CommonUtil.subZeroAndDot(totalFee);
+			packageParams.put("total_fee", totalFee);// 总金额
+			//H5支付要求商户在统一下单接口中上传用户真实ip地址 spbill_create_ip
+			packageParams.put("spbill_create_ip", product.getSpbillCreateIp());// 发起人IP地址
+			packageParams.put("notify_url", notify_url);// 回调地址
+			packageParams.put("trade_type", trade_type);// 交易类型
+			//H5支付专用 
+			JSONObject value = new JSONObject();
+			value.put("type", "WAP");
+			value.put("wap_url", "https://blog.52itstyle.com");////WAP网站URL地址
+			value.put("wap_name", "科帮网充值");//WAP 网站名
+			JSONObject scene_info = new JSONObject();
+			scene_info.put("h5_info", value);
+			packageParams.put("scene_info", scene_info.toString());
+			
+			String sign = PayCommonUtil.createSign("UTF-8", packageParams, key);
+			packageParams.put("sign", sign);// 签名
+
+			String requestXML = PayCommonUtil.getRequestXml(packageParams);
+			String resXml = HttpUtil.postData(ConfigUtil.UNIFIED_ORDER_URL, requestXML);
+			Map map = XMLUtil.doXMLParse(resXml);
+			String returnCode = (String) map.get("return_code");
+			if("SUCCESS".equals(returnCode)){
+				String resultCode = (String) map.get("result_code");
+				if("SUCCESS".equals(resultCode)){
+					logger.info("订单号：{}发起H5支付成功",product.getOutTradeNo());
+					mweb_url = (String) map.get("mweb_url");
+				}else{
+					String errCodeDes = (String) map.get("err_code_des");
+					logger.info("订单号：{}发起H5支付(系统)失败:{}",product.getOutTradeNo(),errCodeDes);
+				}
+			}else{
+				String returnMsg = (String) map.get("return_msg");
+				logger.info("(订单号：{}发起H5支付(通信)失败:{}",product.getOutTradeNo(),returnMsg);
+			}
+		} catch (Exception e) {
+			logger.error("订单号：{}发起H5支付失败(系统异常))",product.getOutTradeNo(),e);
+		}
+		return mweb_url;
 	}
 }

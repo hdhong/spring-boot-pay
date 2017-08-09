@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,17 @@ public class WeixinMobilePayController {
 		logger.info("H5支付(需要公众号内支付)");
 		String url =  weixinPayService.weixinPayMobile(product);
 		return "redirect:"+url;
+    }
+	@RequestMapping("/h5pay")
+    public String  h5pay(Product product,ModelMap map) {
+		logger.info("纯H5支付(不建议在APP端使用)");
+		//mweb_url为拉起微信支付收银台的中间页面，可通过访问该url来拉起微信客户端，完成支付,mweb_url的有效期为5分钟。
+		String mweb_url =  weixinPayService.weixinPayH5(product);
+		if(StringUtils.isNotBlank(mweb_url)){
+			return "redirect:"+mweb_url;
+		}else{
+			return "redirect:https://blog.52itstyle.com";//自定义错误页面
+		}
     }
 	/**
 	 * 预下单(对于已经产生的订单)
