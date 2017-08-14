@@ -1,6 +1,14 @@
 ## spring-boot-pay
 支付服务：支付宝，微信，银联详细 **代码案例** (除银联支付可以测试以外，支付宝和微信支付测试均需要企业认证，个人无法完成测试)，项目启动前请仔细阅读  **[注意事项](https://git.oschina.net/52itstyle/spring-boot-pay#注意事项)** :fa-hand-o-left:   。
 
+### 支付宝
+扫码支付、电脑支付、WAP支付
+### 微信
+扫码支付(模式一二)、公众号H5支付、WAP支付
+### 银联
+电脑支付、WAP支付
+
+
 [SpringMvc-Dubbox-pay版本](https://git.oschina.net/52itstyle/springMvc-dubbo-pay)
 
 ## 开发环境
