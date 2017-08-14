@@ -144,6 +144,17 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- 指定main方法入口 -->
+				<configuration>
+                    <mainClass>com.itstyle.Application</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
 				<dependencies>
 					<!-- mvn spring-boot:run 热部署启动 -->
 					<dependency>
