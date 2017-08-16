@@ -135,7 +135,11 @@
 		    <groupId>org.javassist</groupId>
 		    <artifactId>javassist</artifactId>
 		</dependency>
-		 
+		<!--  JAVA奇技淫巧简化代码之lombok https://blog.52itstyle.com/archives/1418/ -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>spring-boot-pay</finalName>
