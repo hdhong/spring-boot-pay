@@ -116,6 +116,7 @@ CERT_PATH = apiclient_cert.p12
 ![支付模式一回调](https://git.oschina.net/uploads/images/2017/0803/184711_75c8374c_87650.png "模式一支付.png")
 - 微信或者支付宝下单调用网关失败，请检查网络 ping api.mch.weixin.qq.com -c 100 或者 ping openapi.alipay.com/gateway.do -c 100
 - 支付宝中的初始化配置Configs 不要随便变更，支付相关JAR调用的是Configs中的配置
+- 由于项目配置了SSL，访问地址： https://ip:port/springboot_pay/ 见：[SpringBoot开发案例之集成SSL证书](https://blog.52itstyle.com/archives/1403/)
 
 ## 功能日志
 - 支付宝生成支付二维码Demo已经测试完成
