@@ -115,6 +115,7 @@ CERT_PATH = apiclient_cert.p12
 - 公众平台微信支付公众号支付授权目录、扫码支付回调URL配置入口已于8月1日迁移至商户平台（pay.weixin.qq.com）。迁移后，原有配置数据不会受影响，你可在商户平台查看和配置。带来的不便敬请谅解。
 ![支付模式一回调](https://git.oschina.net/uploads/images/2017/0803/184711_75c8374c_87650.png "模式一支付.png")
 - 微信或者支付宝下单调用网关失败，请检查网络 ping api.mch.weixin.qq.com -c 100 或者 ping openapi.alipay.com/gateway.do -c 100
+- 支付宝中的初始化配置Configs 不要随便变更，支付相关JAR调用的是Configs中的配置
 
 ## 功能日志
 - 支付宝生成支付二维码Demo已经测试完成
