@@ -1,6 +1,10 @@
 ## spring-boot-pay
 支付服务：支付宝，微信，银联详细 **代码案例** (除银联支付可以测试以外，支付宝和微信支付测试均需要企业认证，个人无法完成测试)，项目启动前请仔细阅读  **[注意事项](https://git.oschina.net/52itstyle/spring-boot-pay#注意事项)** :fa-hand-o-left:   。
 
+有时候开发者想要的不一定是一个大而全的项目，而是可以集成到适合我们项目中的Demo。
+
+以下所有支付Demo，绝非唬人，测试通过，真实有效！！！，如有疑问，敬请加群，统统解决。
+
 ### 支付宝
 扫码支付、电脑支付、WAP支付
 ### 微信
@@ -116,6 +120,7 @@ CERT_PATH = apiclient_cert.p12
 ![支付模式一回调](https://git.oschina.net/uploads/images/2017/0803/184711_75c8374c_87650.png "模式一支付.png")
 - 微信或者支付宝下单调用网关失败，请检查网络 ping api.mch.weixin.qq.com -c 100 或者 ping openapi.alipay.com/gateway.do -c 100
 - 支付宝中的初始化配置Configs 不要随便变更，支付相关JAR调用的是Configs中的配置
+- 由于项目配置了SSL，访问地址： https://ip:port/springboot_pay/ 见：[SpringBoot开发案例之集成SSL证书](https://blog.52itstyle.com/archives/1403/)
 
 ## 功能日志
 - 支付宝生成支付二维码Demo已经测试完成
