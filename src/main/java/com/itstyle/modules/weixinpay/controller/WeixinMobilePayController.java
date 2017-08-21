@@ -47,6 +47,11 @@ public class WeixinMobilePayController {
 		String url =  weixinPayService.weixinPayMobile(product);
 		return "redirect:"+url;
     }
+	//公众号H5支付主页
+	@RequestMapping(value = "payPage")
+	public String pay(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		return "weixin/pay";
+	}
 	@RequestMapping("/h5pay")
     public String  h5pay(Product product,ModelMap map) {
 		logger.info("纯H5支付(不建议在APP端使用)");
@@ -119,7 +124,7 @@ public class WeixinMobilePayController {
 				//这里很重要  参数一定要正确 狗日的腾讯 参数到这里就成大写了
 				//可能报错信息(支付验证签名失败 get_brand_wcpay_request:fail)
 				sign = PayCommonUtil.createSign("UTF-8", finalpackage,ConfigUtil.API_KEY);
-				url.append("redirect:/weixinMobile/pay?");
+				url.append("redirect:/weixinMobile/payPage?");
 				url.append("timeStamp="+timestamp+"&nonceStr=" + nonceStr + "&package=" + packages);
 				url.append("&signType=MD5" + "&paySign=" + sign+"&appid="+ ConfigUtil.APP_ID);
 				url.append("&orderNo="+orderNo+"&totalFee="+totalFee);
