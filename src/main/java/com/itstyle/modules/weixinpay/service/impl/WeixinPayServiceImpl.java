@@ -213,9 +213,9 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 		totalFee =  CommonUtil.subZeroAndDot(totalFee);
 		url.append("http://open.weixin.qq.com/connect/oauth2/authorize?");
 		url.append("appid="+ConfigUtil.APP_ID);
-		url.append("&redirect_uri="+server_url+"weixinMobile/dopay");
+		url.append("&redirect_uri="+server_url+"weixinMobile/dopay?");
+		url.append("outTradeNo="+product.getOutTradeNo()+"&totalFee="+totalFee);
 		url.append("&response_type=code&scope=snsapi_base&state=");
-		url.append(product.getOutTradeNo()+"/"+totalFee);//订单号/金额(单位是分)
 		url.append("#wechat_redirect");
 		return  url.toString();
 	}

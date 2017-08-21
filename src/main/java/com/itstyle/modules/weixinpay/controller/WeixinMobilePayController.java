@@ -78,10 +78,8 @@ public class WeixinMobilePayController {
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "dopay")
 	public String dopay(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String state = request.getParameter("state");
-		String[] split = state.split("/");
-		String orderNo = split[0];
-		String totalFee = split[1];
+		String orderNo = request.getParameter("outTradeNo");
+		String totalFee = request.getParameter("totalFee");
 		//获取code 这个在微信支付调用时会自动加上这个参数 无须设置
 		String code = request.getParameter("code");
 		//获取用户openID(JSAPI支付必须传openid)
