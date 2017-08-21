@@ -1,6 +1,10 @@
 ## spring-boot-pay
 支付服务：支付宝，微信，银联详细 **代码案例** (除银联支付可以测试以外，支付宝和微信支付测试均需要企业认证，个人无法完成测试)，项目启动前请仔细阅读  **[注意事项](https://git.oschina.net/52itstyle/spring-boot-pay#注意事项)** :fa-hand-o-left:   。
 
+## 欢迎关注
+
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0802/192116_4752d44b_87650.jpeg "1801066129 (1).jpg")
+
 有时候开发者想要的不一定是一个大而全的项目，而是可以集成到适合我们项目中的Demo。
 
 以下所有支付Demo，绝非唬人，测试通过，真实有效！！！，如有疑问，敬请加群，统统解决。
@@ -38,9 +42,7 @@ JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、Dub
 
 ![扫码模式一](https://git.oschina.net/uploads/images/2017/0803/184824_420ca96d_87650.png "123.png")
 
-## 欢迎关注
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0802/192116_4752d44b_87650.jpeg "1801066129 (1).jpg")
 
 ## 支付宝
 
