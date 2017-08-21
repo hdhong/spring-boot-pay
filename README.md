@@ -161,6 +161,8 @@ CERT_PATH = apiclient_cert.p12
 
 [微信扫码支付(模式一)遇到的那些坑](https://blog.52itstyle.com/archives/1372/)
 
+[微信公众号H5支付遇到的那些坑 ](https://blog.52itstyle.com/archives/1440/) 
+
 
 作者： 小柒2012
 
