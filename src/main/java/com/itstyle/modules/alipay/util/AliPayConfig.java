@@ -15,11 +15,6 @@ public final class AliPayConfig {
      * 私有的默认构造子，保证外界无法直接实例化
      */
     private AliPayConfig(){};
-    
-	/**
-     * 收款方账号
-     */
-    public static final String SELLER_ID = "zhifu@52itstyle.com";
 	 /**
      * 参数类型
      */
