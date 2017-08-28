@@ -1,9 +1,9 @@
 package com.itstyle;
 import java.io.IOException;
+
 import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * 创建者 科帮网
  * 创建时间 2017年7月27日
  */
-@EnableAutoConfiguration
-@ComponentScan(basePackages = { "com.itstyle.modules" })
+@SpringBootApplication
 @ImportResource({"classpath:spring-context-dubbo.xml"})
 @Controller
 public class Application extends WebMvcConfigurerAdapter {
