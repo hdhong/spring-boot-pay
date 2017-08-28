@@ -50,7 +50,7 @@ public class WeixinMobilePayController {
 	//公众号H5支付主页
 	@RequestMapping(value = "payPage")
 	public String pay(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return "weixin/pay";
+		return "weixin/payPage";
 	}
 	@RequestMapping("/h5pay")
     public String  h5pay(Product product,ModelMap map) {
@@ -62,6 +62,12 @@ public class WeixinMobilePayController {
 		}else{
 			return "redirect:https://blog.52itstyle.com";//自定义错误页面
 		}
+    }
+	@RequestMapping("/smallRoutine")
+    public String  smallRoutine(Product product,ModelMap map) {
+		logger.info("小程序支付(需要HTTPS)、不需要支付目录和授权域名");
+		String url =  weixinPayService.weixinPayMobile(product);
+		return "redirect:"+url;
     }
 	/**
 	 * 预下单(对于已经产生的订单)
@@ -85,7 +91,7 @@ public class WeixinMobilePayController {
 		//获取用户openID(JSAPI支付必须传openid)
 		String openId = MobileUtil.getOpenId(code);
 		String notify_url =server_url+"/weixinMobile/WXPayBack";//回调接口
-		String trade_type = "JSAPI";// 交易类型H5支付
+		String trade_type = "JSAPI";// 交易类型H5支付 也可以是小程序支付参数
 		SortedMap<Object, Object> packageParams = new TreeMap<Object, Object>();
 		ConfigUtil.commonParams(packageParams);
 		packageParams.put("body","报告");// 商品描述
