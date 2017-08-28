@@ -88,6 +88,7 @@ heartbeat_duration = 900
 - 扫码支付模式二：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_5
 - 微信退款说明：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=4_3
 - 网络设置指引：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=23_2
+- HTTPS服务器配置:https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=10_4
 - 参数wxinfo.properties
 
 ```
@@ -163,6 +164,7 @@ CERT_PATH = apiclient_cert.p12
 
 [微信公众号H5支付遇到的那些坑 ](https://blog.52itstyle.com/archives/1440/) 
 
+[阿里云HTTPS证书服务](https://blog.52itstyle.com/archives/969/)
 
 作者： 小柒2012
 
