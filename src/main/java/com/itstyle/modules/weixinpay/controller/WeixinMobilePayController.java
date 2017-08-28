@@ -1,5 +1,8 @@
 package com.itstyle.modules.weixinpay.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import java.io.BufferedOutputStream;
 import java.util.Map;
 import java.util.SortedMap;
@@ -16,6 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itstyle.common.model.Product;
 import com.itstyle.common.utils.AddressUtils;
@@ -27,11 +31,12 @@ import com.itstyle.modules.weixinpay.util.PayCommonUtil;
 import com.itstyle.modules.weixinpay.util.XMLUtil;
 import com.itstyle.modules.weixinpay.util.mobile.MobileUtil;
 /**
- * 微信公众号H5支付
+ * 微信H5支付
  * 创建者 科帮网
  * 创建时间	2017年7月31日
  *
  */
+@Api(tags ="微信H5支付")
 @Controller
 @RequestMapping(value = "weixinMobile")
 public class WeixinMobilePayController {
@@ -41,18 +46,20 @@ public class WeixinMobilePayController {
 	@Value("${server.context.url}")
 	private String server_url;
 	
-	@RequestMapping("/pay")
+	@ApiOperation(value="H5支付(需要公众号内支付)")
+	@RequestMapping(value="pay",method=RequestMethod.POST)
     public String  pay(Product product,ModelMap map) {
 		logger.info("H5支付(需要公众号内支付)");
 		String url =  weixinPayService.weixinPayMobile(product);
 		return "redirect:"+url;
     }
-	//公众号H5支付主页
-	@RequestMapping(value = "payPage")
+	@ApiOperation(value="公众号H5支付主页")
+	@RequestMapping(value="payPage",method=RequestMethod.GET)
 	public String pay(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return "weixin/payPage";
 	}
-	@RequestMapping("/h5pay")
+	@ApiOperation(value="纯H5支付(不建议在APP端使用)")
+	@RequestMapping(value="h5pay",method=RequestMethod.POST)
     public String  h5pay(Product product,ModelMap map) {
 		logger.info("纯H5支付(不建议在APP端使用)");
 		//mweb_url为拉起微信支付收银台的中间页面，可通过访问该url来拉起微信客户端，完成支付,mweb_url的有效期为5分钟。
@@ -63,7 +70,8 @@ public class WeixinMobilePayController {
 			return "redirect:https://blog.52itstyle.com";//自定义错误页面
 		}
     }
-	@RequestMapping("/smallRoutine")
+	@ApiOperation(value="小程序支付(需要HTTPS)")
+	@RequestMapping(value="smallRoutine",method=RequestMethod.POST)
     public String  smallRoutine(Product product,ModelMap map) {
 		logger.info("小程序支付(需要HTTPS)、不需要支付目录和授权域名");
 		String url =  weixinPayService.weixinPayMobile(product);
@@ -82,7 +90,8 @@ public class WeixinMobilePayController {
 	 *
 	 */
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "dopay")
+	@ApiOperation(value="预下单")
+	@RequestMapping(value="dopay",method=RequestMethod.POST)
 	public String dopay(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String orderNo = request.getParameter("outTradeNo");
 		String totalFee = request.getParameter("totalFee");
@@ -153,7 +162,8 @@ public class WeixinMobilePayController {
 	 * 2017年7月31日  科帮网 首次创建
 	 *
 	 */
-	@RequestMapping(value = "WXPayBack")
+	@ApiOperation(value="手机支付完成回调")
+	@RequestMapping(value="WXPayBack",method=RequestMethod.POST)
 	public void WXPayBack(HttpServletRequest request, HttpServletResponse response){
 		String resXml = "";
 		try {

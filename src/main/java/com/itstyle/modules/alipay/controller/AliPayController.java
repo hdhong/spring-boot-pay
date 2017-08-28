@@ -1,5 +1,8 @@
 package com.itstyle.modules.alipay.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import java.io.BufferedOutputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -23,36 +26,41 @@ import com.itstyle.common.constants.Constants;
 import com.itstyle.common.model.Product;
 import com.itstyle.modules.alipay.service.IAliPayService;
 /**
- * 支付宝二维码支付
+ * 支付宝支付
  * 创建者 科帮网
  * 创建时间	2017年7月30日
  */
+@Api(tags ="支付宝支付")
 @Controller
 @RequestMapping(value = "alipay")
 public class AliPayController {
 	private static final Logger logger = LoggerFactory.getLogger(AliPayController.class);
 	@Autowired
 	private IAliPayService aliPayService;
-
-	@RequestMapping("/index")
+	
+	@ApiOperation(value="支付主页")
+	@RequestMapping(value="index",method=RequestMethod.GET)
     public String   index() {
         return "alipay/index";
     }
-	@RequestMapping("/pcPay")
+	@ApiOperation(value="电脑支付")
+	@RequestMapping(value="pcPay",method=RequestMethod.POST)
     public String  pcPay(Product product,ModelMap map) {
 		logger.info("电脑支付");
 		String form  =  aliPayService.aliPayPc(product);
 		map.addAttribute("form", form);
 		return "alipay/pay";
     }
-	@RequestMapping("/mobilePay")
+	@ApiOperation(value="手机H5支付")
+	@RequestMapping(value="mobilePay",method=RequestMethod.POST)
     public String  mobilePay(Product product,ModelMap map) {
 		logger.info("手机H5支付");
 		String form  =  aliPayService.aliPayMobile(product);
 		map.addAttribute("form", form);
 		return "alipay/pay";
     }
-	@RequestMapping("/qcPay")
+	@ApiOperation(value="二维码支付")
+	@RequestMapping(value="qcPay",method=RequestMethod.POST)
     public String  qcPay(Product product,ModelMap map) {
 		logger.info("二维码支付");
 		String message  =  aliPayService.aliPay(product);
@@ -73,9 +81,9 @@ public class AliPayController {
      * @Date	2017年7月30日
      * 更新日志
      * 2017年7月30日  科帮网 首次创建
-     *
      */
-	@RequestMapping(value = "pay",method = RequestMethod.POST)
+	@ApiOperation(value="支付宝支付回调(二维码、H5、网站)")
+	@RequestMapping(value="pay",method=RequestMethod.POST)
 	public void alipay_notify(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String  message = "success";
 		Map<String, String> params = new HashMap<String, String>();

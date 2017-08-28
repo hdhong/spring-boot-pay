@@ -1,5 +1,8 @@
 package com.itstyle.modules.unionpay.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itstyle.common.constants.PayWay;
 import com.itstyle.common.model.Product;
@@ -26,8 +30,8 @@ import com.itstyle.modules.unionpay.util.SDKConstants;
  * 银联支付
  * 创建者 科帮网
  * 创建时间	2017年8月2日
- *
  */
+@Api(tags ="银联支付")
 @Controller
 @RequestMapping(value = "unionpay")
 public class UnionPayController {
@@ -36,12 +40,14 @@ public class UnionPayController {
 	@Autowired
 	private IUnionPayService unionPayService;
 
-	@RequestMapping("/index")
+
+	@ApiOperation(value="银联支付主页")
+	@RequestMapping(value="index",method=RequestMethod.GET)
     public String   index() {
         return "unionpay/index";
     }
-	
-	@RequestMapping("/pcPay")
+	@ApiOperation(value="电脑支付")
+	@RequestMapping(value="pcPay",method=RequestMethod.POST)
     public String  pcPay(Product product,ModelMap map) {
 		logger.info("电脑支付");
 		product.setPayWay(PayWay.PC.getCode());
@@ -49,7 +55,8 @@ public class UnionPayController {
 		map.addAttribute("form", form);
 		return "unionpay/pay";
     }
-	@RequestMapping("/mobilePay")
+	@ApiOperation(value="手机H5支付")
+	@RequestMapping(value="mobilePay",method=RequestMethod.POST)
     public String  mobilePay(Product product,ModelMap map) {
 		logger.info("手机H5支付");
 		product.setPayWay(PayWay.MOBILE.getCode());
@@ -72,7 +79,8 @@ public class UnionPayController {
 	 * 2017年8月2日  科帮网 首次创建
 	 *
 	 */
-	@RequestMapping(value = "pay")
+	@ApiOperation(value="银联回调通知")
+	@RequestMapping(value="pay",method=RequestMethod.POST)
 	public void union_notify(HttpServletRequest request, HttpServletResponse response) throws Exception {
         logger.info("银联接收后台通知开始");
 		String encoding = request.getParameter(SDKConstants.param_encoding);

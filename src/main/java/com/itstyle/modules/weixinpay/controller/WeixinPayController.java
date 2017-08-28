@@ -1,4 +1,7 @@
 package com.itstyle.modules.weixinpay.controller;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -19,6 +22,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itstyle.common.constants.Constants;
 import com.itstyle.common.model.Product;
@@ -29,10 +33,11 @@ import com.itstyle.modules.weixinpay.util.PayCommonUtil;
 import com.itstyle.modules.weixinpay.util.XMLUtil;
 
 /**
- * 微信二维码支付
+ * 微信支付
  * 创建者 科帮网
  * 创建时间	2017年7月31日
  */
+@Api(tags ="微信支付")
 @Controller
 @RequestMapping(value = "weixin")
 public class WeixinPayController {
@@ -43,11 +48,13 @@ public class WeixinPayController {
 	@Value("${wexinpay.notify.url}")
 	private String notify_url;
 	
-	@RequestMapping("/index")
+	@ApiOperation(value="支付主页")
+	@RequestMapping(value="index",method=RequestMethod.GET)
     public String   index() {
         return "weixinpay/index";
     }
-	@RequestMapping("/qcPay")
+	@ApiOperation(value="二维码支付")
+	@RequestMapping(value="qcPay",method=RequestMethod.POST)
     public String  qcPay(Product product,ModelMap map) {
 		logger.info("二维码支付");
 		//参数自定义  这只是个Demo
@@ -75,7 +82,8 @@ public class WeixinPayController {
 	 *
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@RequestMapping(value = "pay")
+	@ApiOperation(value="支付后台回调")
+	@RequestMapping(value="pay",method=RequestMethod.POST)
 	public void weixin_notify(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 读取参数
 		InputStream inputStream = request.getInputStream();
@@ -150,7 +158,8 @@ public class WeixinPayController {
 	 *
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes"})
-	@RequestMapping(value = "bizpayurl")
+	@ApiOperation(value="模式一支付回调URL")
+	@RequestMapping(value="bizpayurl",method=RequestMethod.POST)
 	public void bizpayurl(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		logger.info("模式一支付回调URL");
 		//读取参数
