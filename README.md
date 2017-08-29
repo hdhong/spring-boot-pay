@@ -34,6 +34,8 @@ JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、Dub
 
 地址：http://localhost:8080/springboot_pay/swagger-ui.html
 
+配置说明：https://blog.52itstyle.com/archives/1473/
+
 ![支付文档](https://git.oschina.net/uploads/images/2017/0828/172331_6537f916_87650.png "zhifuAPI.png")
 
 ## 演示界面
