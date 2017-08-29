@@ -172,6 +172,8 @@ CERT_PATH = apiclient_cert.p12
 
 [阿里云HTTPS证书服务](https://blog.52itstyle.com/archives/969/)
 
+[SpringBoot开发案例之整合Swagger篇](https://blog.52itstyle.com/archives/1473/)
+
 作者： 小柒2012
 
 欢迎关注： https://blog.52itstyle.com
