@@ -13,6 +13,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class Swagger2 {
 	@Bean
+	public Docket webApi() {
+		return new Docket(DocumentationType.SWAGGER_2)
+		        .groupName("支付后台API接口文档")  
+		        .apiInfo(apiInfo())
+				.select()
+				.apis(RequestHandlerSelectors.basePackage("com.itstyle.modules.web"))
+				.paths(PathSelectors.any()).build();
+	}
+	@Bean
 	public Docket alipayApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
 		        .groupName("支付宝API接口文档")  

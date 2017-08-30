@@ -2,7 +2,6 @@ package com.itstyle.modules.weixinpay.service;
 
 import com.itstyle.common.model.Product;
 
-
 public interface IWeixinPayService {
 	/**
 	 * 微信支付下单(模式二)
