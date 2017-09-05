@@ -17,7 +17,8 @@
 			<h2 id="tab3" name="tab">退 款</h2>
 			<h2 id="tab4" name="tab">退 款 查 询</h2>
 			<h2 id="tab5" name="tab">交 易 关 闭</h2>
-			<h2 id="tab6" name="tab">扫码支付</h2>
+			<h2 id="tab6" name="tab">扫码支付(模式一)</h2>
+			<h2 id="tab6" name="tab">扫码支付(模式二)</h2>
 		</div>
 		<form name=alipayment action=../weixinMobile/pay method=post
 			target="_blank">
@@ -170,7 +171,24 @@
 				</dl>
 			</div>
 		</form>
-		<form name=alipayqc action=qcPay method=post
+		<form name=alipayqc1 action=qcPay1 method=post
+			target="_blank">
+			<div id="body6"  class="tab-content" name="divcontent">
+				<dl class="content">
+					<dt>商品ID ：</dt>
+					<dd>
+						<input id="productId" name="productId" />
+					</dd>
+					<dd id="btn-dd">
+						<span class="new-btn-login-sp">
+							<button class="new-btn-login" type="submit"
+								style="text-align: center;">生成二维码</button>
+						</span> <span class="note-help">如果您点击“生成二维码”按钮，即表示您预先根据商品ID生成唯一二维码。</span>
+					</dd>
+				</dl>
+			</div>
+		</form>
+		<form name=alipayqc2 action=qcPay2 method=post
 			target="_blank">
 			<div id="body6"  class="tab-content" name="divcontent">
 				<dl class="content">
@@ -243,12 +261,17 @@
 		sNow += String(vNow.getMinutes());
 		sNow += String(vNow.getSeconds());
 		sNow += String(vNow.getMilliseconds());
+		//公众号H5支付
 		document.getElementById("WIDout_trade_no").value =  sNow;
 		document.getElementById("WIDsubject").value = "科帮网测试支付";
 		document.getElementById("WIDtotal_amount").value = "100";
+		//二维码支付模式二
 		document.getElementById("WIDout_trade_no_qc").value =  sNow;
 		document.getElementById("WIDsubject_qc").value = "科帮网测试支付";
 		document.getElementById("WIDtotal_amount_qc").value = "100";
+		//二维码支付模式一
+		document.getElementById("productId").value = "20170518";//保证数据库中存在
+		
 	}
 	GetDateNow();
 </script>

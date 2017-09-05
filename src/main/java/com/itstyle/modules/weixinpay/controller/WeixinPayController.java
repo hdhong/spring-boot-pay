@@ -31,7 +31,6 @@ import com.itstyle.modules.weixinpay.util.ConfigUtil;
 import com.itstyle.modules.weixinpay.util.HttpUtil;
 import com.itstyle.modules.weixinpay.util.PayCommonUtil;
 import com.itstyle.modules.weixinpay.util.XMLUtil;
-
 /**
  * 微信支付
  * 创建者 科帮网
@@ -53,15 +52,24 @@ public class WeixinPayController {
     public String   index() {
         return "weixinpay/index";
     }
-	@ApiOperation(value="二维码支付")
-	@RequestMapping(value="qcPay",method=RequestMethod.POST)
-    public String  qcPay(Product product,ModelMap map) {
-		logger.info("二维码支付");
+	@ApiOperation(value="二维码支付(模式一)根据商品ID预先生成二维码")
+	@RequestMapping(value="qcPay1",method=RequestMethod.POST)
+    public String  qcPay1(Product product,ModelMap map) {
+		logger.info("二维码支付(模式一)");
+		weixinPayService.weixinPay1(product);
+		String img= "../qrcode/"+product.getProductId()+".png";
+		map.addAttribute("img", img);
+		return "weixinpay/qcpay";
+    }
+	@ApiOperation(value="二维码支付(模式二)下单并生成二维码")
+	@RequestMapping(value="qcPay2",method=RequestMethod.POST)
+    public String  qcPay2(Product product,ModelMap map) {
+		logger.info("二维码支付(模式二)");
 		//参数自定义  这只是个Demo
 		product.setProductId("20170721");
 		product.setBody("两个苹果八毛钱 ");
 		product.setSpbillCreateIp("192.168.1.66");
-		String message  =  weixinPayService.weixinPay(product);
+		String message  =  weixinPayService.weixinPay2(product);
 		if(Constants.SUCCESS.equals(message)){
 			String img= "../qrcode/"+product.getOutTradeNo()+".png";
 			map.addAttribute("img", img);

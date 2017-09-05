@@ -14,7 +14,17 @@ public interface IWeixinPayService {
 	 * 2017年7月31日  科帮网 首次创建
 	 *
 	 */
-	String weixinPay(Product product);
+	String weixinPay2(Product product);
+	/**
+	 * 微信支付下单(模式一)
+	 * @Author  科帮网
+	 * @param product  void
+	 * @Date	2017年9月5日
+	 * 更新日志
+	 * 2017年9月5日  科帮网 首次创建
+	 *
+	 */
+	void weixinPay1(Product product);
     /**
      * 微信支付退款
      * @Author  科帮网

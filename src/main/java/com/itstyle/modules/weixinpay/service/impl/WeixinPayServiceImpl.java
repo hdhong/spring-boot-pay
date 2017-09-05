@@ -32,7 +32,7 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 	
 	@SuppressWarnings("rawtypes")
 	@Override
-	public String weixinPay(Product product) {
+	public String weixinPay2(Product product) {
 		logger.info("订单号：{}生成微信支付码",product.getOutTradeNo());
 		String  message = Constants.SUCCESS;
 		try {
@@ -80,6 +80,30 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 			message = Constants.FAIL;
 		}
 		return message;
+	}
+	@Override
+	public void weixinPay1(Product product) {
+		//商户支付回调URL设置指引：进入公众平台-->微信支付-->开发配置-->扫码支付-->修改 加入回调URL
+		//注意参数初始化 这只是个Demo
+		SortedMap<Object, Object> packageParams = new TreeMap<Object, Object>();
+		//封装通用参数
+		ConfigUtil.commonParams(packageParams);
+		packageParams.put("product_id", product.getProductId());//真实商品ID
+		packageParams.put("time_stamp", PayCommonUtil.getCurrTime());
+		//生成签名
+		String sign = PayCommonUtil.createSign("UTF-8", packageParams, ConfigUtil.API_KEY);
+		//组装二维码信息(注意全角和半角：的区别 狗日的腾讯)
+    	StringBuffer qrCode = new StringBuffer();
+    	qrCode.append("weixin://wxpay/bizpayurl?");
+    	qrCode.append("appid="+ConfigUtil.APP_ID);
+    	qrCode.append("&mch_id="+ConfigUtil.MCH_ID);
+    	qrCode.append("&nonce_str="+packageParams.get("nonce_str"));
+    	qrCode.append("&product_id="+product.getProductId());
+    	qrCode.append("&time_stamp="+packageParams.get("time_stamp"));
+    	qrCode.append("&sign="+sign);
+    	String imgPath= Constants.QRCODE_PATH+Constants.SF_FILE_SEPARATOR+product.getProductId()+".png";
+    	//生成二维码
+        ZxingUtils.getQRCodeImge(qrCode.toString(), 256, imgPath);
 	}
 	@SuppressWarnings("rawtypes")
 	@Override
