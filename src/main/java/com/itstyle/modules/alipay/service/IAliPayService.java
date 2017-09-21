@@ -82,4 +82,15 @@ public interface IAliPayService {
 	 *
 	 */
 	String aliPayPc(Product product);
+	/**
+	 * APP支付
+	 * @Author  科帮网
+	 * @param product
+	 * @return  String
+	 * @Date	2017年9月21日
+	 * 更新日志
+	 * 2017年9月21日  科帮网 首次创建
+	 *
+	 */
+	String appPay(Product product);
 }

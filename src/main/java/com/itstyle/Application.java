@@ -13,6 +13,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * 支付主控 
  * 创建者 科帮网
  * 创建时间 2017年7月27日
+ * 启动   java -jar spring-boot-pay.jar --server.port=8886 
+ * linux 下 后台启动  nohup java -jar spring-boot-pay.jar --server.port=8886 & 
  */
 @SpringBootApplication
 @ImportResource({"classpath:spring-context-dubbo.xml"})

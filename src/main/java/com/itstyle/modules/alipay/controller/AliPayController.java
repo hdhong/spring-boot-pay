@@ -72,6 +72,14 @@ public class AliPayController {
 		}
 		return "alipay/qcpay";
     }
+	@ApiOperation(value="app支付服务端")
+	@RequestMapping(value="appPay",method=RequestMethod.POST)
+    public String  appPay(Product product,ModelMap map) {
+		logger.info("app支付服务端");
+		String orderString  =  aliPayService.appPay(product);
+		map.addAttribute("orderString", orderString);
+		return "alipay/pay";
+    }
     /**
      * 支付宝支付回调(二维码、H5、网站)
      * @Author  科帮网

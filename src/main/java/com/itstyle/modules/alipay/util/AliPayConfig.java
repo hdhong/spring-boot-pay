@@ -34,7 +34,7 @@ public final class AliPayConfig {
 		private  static AlipayClient alipayClient = new DefaultAlipayClient(
 													Configs.getOpenApiDomain(), Configs.getAppid(),
 													Configs.getPrivateKey(), PARAM_TYPE, CHARSET,
-													Configs.getAlipayPublicKey());
+													Configs.getAlipayPublicKey(),"RSA2");
 		
 		private  static AlipayTradeService tradeService = new AlipayTradeServiceImpl.ClientBuilder().build();
     }
