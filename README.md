@@ -13,7 +13,7 @@ http://doc.52itstyle.com/
 以下所有支付Demo，测试通过，真实有效！！！如有疑问，敬请加群。
 
 ### 支付宝
-扫码支付、电脑支付、WAP支付
+扫码支付、电脑支付、WAP支付、APP支付服务端
 ### 微信
 扫码支付(模式一二)、公众号H5支付、WAP支付
 ### 银联
@@ -60,6 +60,7 @@ JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、Dub
 - 电脑支付：https://docs.open.alipay.com/270
 - 扫码支付：https://docs.open.alipay.com/194
 - 手机支付：https://docs.open.alipay.com/203
+- APP支付 : https://docs.open.alipay.com/54/106370/
 - 沙箱环境：https://docs.open.alipay.com/200/105311/
 - 参数zfbinfo.properties
 
