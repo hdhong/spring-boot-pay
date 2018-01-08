@@ -131,7 +131,10 @@ CERT_PATH = apiclient_cert.p12
 - 微信退款证书，微信商户平台(pay.weixin.qq.com)-->账户中心-->账户设置-->API安全-->证书下载，使用apiclient_cert.p12即可
 - 支付宝支付相关参数zfbinfo.properties，需要自行去阅读支付宝文档自行生成
 - 微信支付相关参数wxinfo.properties，需要自行去阅读微信支付文档自行生成
-- 公众平台微信支付公众号支付授权目录、扫码支付回调URL配置入口已于8月1日迁移至商户平台（pay.weixin.qq.com）。迁移后，原有配置数据不会受影响，你可在商户平台查看和配置。带来的不便敬请谅解。
+- 公众平台微信支付公众号支付授权目录、扫码支付回调URL配置入口已于8月1日迁移至商户平台（pay.weixin.qq.com）。迁移后，原有配置数据不会受影
+响，你可在商户平台查看和配置。带来的不便敬请谅解。
+- 2018年1月8日更新：公众号开发信息、微信H5支付获取access_token接口时，必须设置IP白名单。
+
 ![支付模式一回调](https://git.oschina.net/uploads/images/2017/0803/184711_75c8374c_87650.png "模式一支付.png")
 - 微信或者支付宝下单调用网关失败，请检查网络 ping api.mch.weixin.qq.com -c 100 或者 ping openapi.alipay.com/gateway.do -c 100
 - 支付宝中的初始化配置Configs 不要随便变更，支付相关JAR调用的是Configs中的配置
