@@ -102,6 +102,7 @@ heartbeat_duration = 900
 - 网络设置指引：https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=23_2
 - HTTPS服务器配置:https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=10_4
 - 参数wxinfo.properties
+- 微信网页授权部分，向微信申请测试号：http://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421137522
 
 ```
 服务号的应用ID
