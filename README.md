@@ -26,6 +26,8 @@ http://doc.52itstyle.com/
 
 JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、Dubbox2.8.4、zookeeper3.4.6
 
+支付宝、Dubbo、zookeeper 安装配置于说明文档见pom.xml文件。
+
 ## 友情提示
 由于工作原因，项目正在完善中（仅供参考），随时更新日志，有疑问请留言或者加群
 
