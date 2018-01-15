@@ -35,6 +35,12 @@ import com.itstyle.common.model.Product;
 import com.itstyle.common.utils.CommonUtil;
 import com.itstyle.modules.alipay.service.IAliPayService;
 import com.itstyle.modules.alipay.util.AliPayConfig;
+/**
+ * TODO
+ * 创建者 科帮网
+ * 创建时间	2018年1月15日
+ *
+ */
 @Service
 public class AliPayServiceImpl implements IAliPayService {
 	private static final Logger logger = LoggerFactory.getLogger(AliPayServiceImpl.class);

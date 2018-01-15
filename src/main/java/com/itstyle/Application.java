@@ -38,10 +38,10 @@ public class Application extends WebMvcConfigurerAdapter {
 	public static void main(String[] args) throws InterruptedException,
 			IOException {
 		SpringApplication.run(Application.class, args);
-		// 初始化 支付宝 微信 银联 参数 涉及机密 此文件不提交 请自行配置加载
-		//Configs.init("zfbinfo.properties");
-		//ConfigUtil.init("wxinfo.properties");
-		//SDKConfig.getConfig().loadPropertiesFromSrc();
+		//初始化 支付宝-微信-银联相关参数,涉及机密,此文件不会提交,请自行配置相关参数并加载
+		//Configs.init("zfbinfo.properties");//支付宝
+		//ConfigUtil.init("wxinfo.properties");//微信
+		//SDKConfig.getConfig().loadPropertiesFromSrc();//银联
 		logger.info("支付项目启动 ");
 	}
 
