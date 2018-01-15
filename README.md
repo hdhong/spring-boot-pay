@@ -26,7 +26,12 @@ http://doc.52itstyle.com/
 
 JDK1.7、Maven、Eclipse、SpringBoot1.5.2、spring-boot-starter-thymeleaf、Dubbox2.8.4、zookeeper3.4.6
 
-支付宝、Dubbo、zookeeper 安装配置于说明文档见pom.xml文件。
+## 启动说明
+- 项目中RPC框架使用的是当当维护的DubboX，现在阿里已经处于维护状态中，请自行更新
+- 配置Dubbo需要安装注册中心zookeeper: http://www.52itstyle.com/thread-19791-1-1.html
+- 如果不想使用Dubbo和安装zookeeper，又想启动看下效果，请注释掉 Application 类中的@ImportResource({"classpath:spring-context-dubbo.xml"})，
+同时由于接口扫描注解使用的是Dubbo的  com.alibaba.dubbo.config.annotation.Service; 请自行替换成spring的 org.springframework.stereotype.Service;
+- 最后想测试相关支付效果，请自行配置支付宝、微信以及银联相关账号以及证书
 
 ## 友情提示
 由于工作原因，项目正在完善中（仅供参考），随时更新日志，有疑问请留言或者加群
