@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 
+import weixin.popular.api.SnsAPI;
+
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alipay.demo.trade.utils.ZxingUtils;
 import com.itstyle.common.constants.Constants;
@@ -231,17 +233,12 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 	}
 	@Override
 	public String weixinPayMobile(Product product) {
-		StringBuffer url = new StringBuffer();
 		String totalFee = product.getTotalFee();
 		//redirect_uri 需要在微信支付端添加认证网址
 		totalFee =  CommonUtil.subZeroAndDot(totalFee);
-		url.append("http://open.weixin.qq.com/connect/oauth2/authorize?");
-		url.append("appid="+ConfigUtil.APP_ID);
-		url.append("&redirect_uri="+server_url+"weixinMobile/dopay?");
-		url.append("outTradeNo="+product.getOutTradeNo()+"&totalFee="+totalFee);
-		url.append("&response_type=code&scope=snsapi_base&state=");
-		url.append("#wechat_redirect");
-		return  url.toString();
+		String redirect_uri = server_url+"weixinMobile/dopay?outTradeNo="+product.getOutTradeNo()+"&totalFee="+totalFee;
+		//也可以通过state传递参数 redirect_uri 后面加参数未经过验证
+		return SnsAPI.connectOauth2Authorize(ConfigUtil.APP_ID, redirect_uri, true,null);
 	}
 	@SuppressWarnings("rawtypes")
 	@Override
