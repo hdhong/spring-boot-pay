@@ -9,8 +9,6 @@ http://doc.52itstyle.com/
 
 ![输入图片说明](https://git.oschina.net/uploads/images/2017/0802/192116_4752d44b_87650.jpeg "1801066129 (1).jpg")
 
-![输入图片说明](https://gitee.com/uploads/images/2018/0404/124419_7608c070_87650.png "12.png")
-
 
 以下所有支付Demo，测试通过，真实有效。
 
