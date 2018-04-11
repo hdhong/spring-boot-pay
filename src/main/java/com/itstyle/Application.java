@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * linux 下 后台启动  nohup java -jar spring-boot-pay.jar --server.port=8886 & 
  */
 @SpringBootApplication
-@ImportResource({"classpath:spring-context-dubbo.xml"})
+//@ImportResource({"classpath:spring-context-dubbo.xml"})
 @Controller
 public class Application extends WebMvcConfigurerAdapter {
 	private static final Logger logger = Logger.getLogger(Application.class);

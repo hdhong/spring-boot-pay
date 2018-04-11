@@ -11,8 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 
 import weixin.popular.api.SnsAPI;
-
-import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Service;
+//import com.alibaba.dubbo.config.annotation.Service;
 import com.alipay.demo.trade.utils.ZxingUtils;
 import com.itstyle.common.constants.Constants;
 import com.itstyle.common.model.Product;
